@@ -23,4 +23,4 @@ void Polindrom(char[] array)
             System.Console.WriteLine("Это палиндром");
     else
             System.Console.WriteLine("Это не палиндром");
-    }
+}
