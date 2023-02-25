@@ -12,7 +12,7 @@ int[] GetArray()         //для создания рандомного масс
     return array;
 }
 
-// int[] InputArray()
+// int[] InputArray()               // для введения вручную рандомного массива, но почему-то консоль начинает зависать при использовании этой функции - на одном и том же месте
 // {
 //     Console.WriteLine("Input number of quantity array elements: ");
 //     int a = Convert.ToInt32(Console.ReadLine());
