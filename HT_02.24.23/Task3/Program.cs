@@ -2,19 +2,22 @@
 
 // [3 7 22 2 78] -> 76
 
-double[] array = GetArray();
+int[] array = GetArray();
+int Max = array[0];
+int Min = array[1];
+int subtraction = 0;
 
-double[] GetArray()
+int[] GetArray()
 {
-    double[] array = new double[20];
+    int[] array = new int[new Random().Next(15,25)];
     for (int i = 0; i < array.Length; i++)
         array[i] = new Random().Next(-100, 100);
     return array;
 }
 
-void MaxAndMin(double[] array, double Max, double Min)
+void MaxAndMin(int[] array, ref int Max, ref int Min)
 {
-    double a = 0;
+    int a = 0;
     if(Max<Min)
     {
         a = Max;
@@ -30,19 +33,20 @@ void MaxAndMin(double[] array, double Max, double Min)
     }
 }
 
-double Subtraction(double[] array, double Max, double Min)
+int Subtraction(int[] array, int Max, int Min, ref int subtraction)
 {
-    double Substrctn = Max - Min;
-    return Substrctn;
+    subtraction = Max - Min;
+    return subtraction;
 }
 
 
-void PrintResult(double[] array, double Max, double Min, double Substrctn)
+void PrintResult(int[] array, int Max, int Min, int subtraction)
 {
     Console.WriteLine($"Array result is {String.Join("|", array)}");
     Console.WriteLine($"Maximal number: {Max}, and minimal number: {Min}");
-    Console.WriteLine($"Result substraction of Max and Min: {Substrctn}");
+    Console.WriteLine($"Result substraction of Max and Min: {subtraction}");
 }
 
-MaxAndMin(array);
-PrintResult(array, Subtraction());
+MaxAndMin(array, ref Max, ref Min);
+Subtraction(array, Max, Min, ref subtraction);
+PrintResult(array, Max, Min, subtraction);

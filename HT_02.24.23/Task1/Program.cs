@@ -4,9 +4,9 @@
 
 int count = 0;
 
-int[] GetArray()         //для создания рандомного массива
+int[] GetArray()         //для создания рандомного массива на рандомное количество 
 {
-    int[] array = new int[12];
+    int[] array = new int[new Random().Next(15, 20)];
     for (int i = 0; i < array.Length; i++)
         array[i] = new Random().Next(100, 1000);
     return array;
