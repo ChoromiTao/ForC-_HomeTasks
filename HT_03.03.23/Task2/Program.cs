@@ -7,18 +7,15 @@
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
 double[,] array = new double[new Random().Next(5,10), new Random().Next(5,10)];
-double number;
-Random rnd = new Random();
 
-double[,] GetArray(double[,] array)
+double[,] GetArray()
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         Console.WriteLine();
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            number = new Random().NextDouble();
-            array[i, j] = number* new Random().Next(10,100);
+            array[i, j] = new Random().NextDouble()* new Random().Next(10,100);
             Console.Write($"{array[i, j]:F3}" + "   ");
         }
     }
@@ -26,29 +23,23 @@ double[,] GetArray(double[,] array)
     return array;
 }
 
-double ArithmeticMean(double[,] array)          // Тебе нужно доделать массив в массиве с арифметическими суммами! тебе нужны среднеарифметические в каждом столбце и запомнить их!
+void ArithmeticMean(double[,] array)          // Тебе нужно доделать массив в массиве с арифметическими суммами! тебе нужны среднеарифметические в каждом столбце и запомнить их!
 {
     double[] ArrayArithmeticMean = new double[array.GetLength(0)];
-    double ArithSum = 0;
     double ArithDev = 1;
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int j = 0; j < array.GetLength(1); j++)
     {
         Console.WriteLine();
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            ArrayArithmeticMean[i] += array[i,j];
+            ArrayArithmeticMean[j] += array[i,j];
         }
-        Console.Write($"{ArrayArithmeticMean[i]:F3}" + "    ");
-        ArithSum += ArrayArithmeticMean[i];
-
-        Console.WriteLine($"The summary of column {i+1}: {ArithSum:F3}");
+        Console.Write($"A summary of elements in column {j+1}: {ArrayArithmeticMean[j]:F3}" + "    ");
+        ArithDev = ArrayArithmeticMean[j] / array.GetLength(0);
+        Console.WriteLine($"The Arithmethic mean of column {j+1}: {ArithDev:F3}");
     }
-    Console.WriteLine(" ");
-    ArithDev = ArithSum / array.GetLength(1);
-    Console.WriteLine();
-    Console.WriteLine($"{ArithDev:F3}");
-    return ArithDev;
+    Console.WriteLine("\n");
 }
 
-GetArray(array);
+array = GetArray();
 ArithmeticMean(array);
