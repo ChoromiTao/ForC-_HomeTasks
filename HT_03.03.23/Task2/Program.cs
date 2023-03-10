@@ -23,7 +23,7 @@ double[,] GetArray()
     return array;
 }
 
-void ArithmeticMean(double[,] array)          // Тебе нужно доделать массив в массиве с арифметическими суммами! тебе нужны среднеарифметические в каждом столбце и запомнить их!
+void ArithmeticMean(double[,] array)          
 {
     double[] ArrayArithmeticMean = new double[array.GetLength(0)];
     double ArithDev = 1;
