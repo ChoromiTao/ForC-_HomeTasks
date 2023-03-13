@@ -6,11 +6,11 @@
 // 18 20
 // 15 18
 
-int a = new Random().Next(2,9);
-int b = new Random().Next(2,9);
-int c = new Random().Next(2,9);
-int[,] firstMatrix = new int[a,b];
-int[,] secondMatrix = new int[b,c];
+int a = new Random().Next(3, 9);
+int b = new Random().Next(3, 9);
+int c = new Random().Next(3, 9);
+int[,] firstMatrix = new int[a, b];
+int[,] secondMatrix = new int[b, c];
 
 int[,] GetMatrix(int[,] array)
 {
@@ -19,38 +19,38 @@ int[,] GetMatrix(int[,] array)
         Console.WriteLine();
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i,j] = new Random().Next(0,10);
-            Console.Write($"{array[i,j]}" + "   ");
+            array[i, j] = new Random().Next(0, 10);
+            Console.Write($"{array[i, j]}" + "   ");
         }
     }
     Console.WriteLine("\n");
     return array;
 }
 
-// int[,] MultiplicationMatrix(int[,] firstMatrix, int[,] secondMatrix, int a, int c)
-// {
-//     int multiFunction;
-//     int multiplic;
-//     int[,] multiplicationMatrix = new int[a,c];
-// for (int i = 0; i < multiplicationMatrix.GetLength(0); i++)
-// {
-//     Console.WriteLine();
-//     for (int j = 0; j < multiplicationMatrix.GetLength(1); j++)
-//     {
-//         for (int i = 0; i < length; i++)
-    //         {
-                
-    //         }
-//         multiplic = 
-//         multiFunction = 
-//         multiplicationMatrix[i,j] = multiFunction;
-//         Console.Write($"{multiplicationMatrix[i,j]}" + "   ");
-//     }
-// }
-// return multiplicationMatrix;
-// }
+int[,] MultiplicationMatrix(int[,] firstMatrix, int[,] secondMatrix, int a, int c)
+{
+    int[,] multiplicationMatrix = new int[a, c];
+    for (int i = 0; i < firstMatrix.GetLength(0); i++)
+    {
+        Console.WriteLine();
+        int multiplic = 0;
+        for (int j = 0; j < secondMatrix.GetLength(1); j++)
+        {
+            int multiFunction = 0;
+            for (int k = 0; k < firstMatrix.GetLength(1); k++)
+            {
+                multiplic = firstMatrix[i, k] * secondMatrix[k, j];
+                multiFunction += multiplic;
+            }
+            multiplicationMatrix[i, j] = multiFunction;
+            Console.Write($"{multiplicationMatrix[i, j]}" + "   ");
+        }
+    }
+    return multiplicationMatrix;
+}
 
 Console.WriteLine("The first matrix is: ");
 firstMatrix = GetMatrix(firstMatrix);
 Console.WriteLine("The second matrix is: ");
 secondMatrix = GetMatrix(secondMatrix);
+MultiplicationMatrix(firstMatrix, secondMatrix, a, c);
